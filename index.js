@@ -1,27 +1,36 @@
-const TronWeb = require('tronweb');
-require('dotenv').config()
+const readline = require('readline');
+const fs = require('fs');
 
-const fullNode = 'https://api.trongrid.io';
-const solidityNode = 'https://api.trongrid.io';
-const eventServer = 'https://api.trongrid.io/';
-const privateKey = process.env.PRIVATE_KEY;
+const rl = readline.createInterface({
+  input: process.stdin,
+  output: process.stdout
+});
 
-const tronWeb = new TronWeb(
-    fullNode,
-    solidityNode,
-    eventServer,
-    privateKey
-);
+console.log("Menu:");
+console.log("1. Account");
+console.log("2. Send TRX");
+console.log("3. Quit");
 
-async function main() {
-    const nodeVersion = await tronWeb.isConnected();
-    console.log(`Connected to node: ${nodeVersion}`);
-
-    const currentAddress = await tronWeb.defaultAddress.base58;
-    console.log(`Current address: ${currentAddress}`);
-
-    const balance = await tronWeb.trx.getBalance(currentAddress);
-    console.log(`TRX balance: ${balance}`);
-}
-
-main().catch(console.error);
+rl.question("Select an option: ", function(answer) {
+  switch (answer) {
+    case '1':
+      fs.readFile('account.js', 'utf8', function(err, data) {
+        if (err) throw err;
+        eval(data);
+      });
+      break;
+    case '2':
+      fs.readFile('send.js', 'utf8', function(err, data) {
+        if (err) throw err;
+        eval(data);
+      });
+      break;
+    case '3':
+      console.log("Quitting");
+      rl.close();
+      break;
+    default:
+      console.log("Invalid option, try again");
+      break;
+  }
+});
