@@ -1,5 +1,1 @@
-# trx-wallet-cli
-
----
-
-soon
+<h1 align="center">CLI Tron Wallet</h1>
