@@ -2,6 +2,12 @@
 
 The Wallet is always being updated, so stay tuned
 
+## Available OS
+
+GNU Linux | MacOS | Unix-like OS
+
+**Windows soon...**
+
 ## Download Tron Wallet
 
 ```bash
