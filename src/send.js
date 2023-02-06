@@ -1,12 +1,10 @@
 const TronWeb = require("tronweb");
-const readline = require("readline");
-const fs = require("fs");
+const readline = require("node:readline");
 require("dotenv").config();
 
-const rl = readline.createInterface({
-  input: process.stdin,
-  output: process.stdout,
-});
+const { stdin: input, stdout: output } = require("node:process");
+
+const rl = readline.createInterface({ input, output });
 
 async function sendTRON(privateKey, toAddress, amount) {
   const tronWeb = new TronWeb({
@@ -25,8 +23,12 @@ async function sendTRON(privateKey, toAddress, amount) {
   const result = await tronWeb.trx.sendRawTransaction(signedTransaction);
   console.log(result);
 }
-  const address = rl.question("Receiver`s address: ");
 
-  const trxamount = rl.question("TRX Amount: ");
+rl.question("What do you think of Node.js? ", (answer) => {
 
-  sendTRON(process.env.PRIVATE_KEY, address, trxamount);
+  console.log(`Thank you for your valuable feedback: ${answer}`);
+
+  rl.close();
+});
+
+sendTRON(process.env.PRIVATE_KEY, address, trxamount);
