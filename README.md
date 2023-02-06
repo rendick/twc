@@ -4,9 +4,9 @@ The Wallet is always being updated, so stay tuned
 
 ## Available OS
 
-GNU Linux | MacOS | Unix-like OS
+GNU Linux | Unix-like OS
 
-**Windows soon...**
+**MacOS soon...**
 
 ## Download Tron Wallet
 
