@@ -1,15 +1,17 @@
 const readline = require("readline");
 const fs = require("fs");
+const shell = require("shelljs");
+
 
 const rl = readline.createInterface({
   input: process.stdin,
   output: process.stdout,
 });
 
-console.log("Menu:\n");
+console.log("\nMenu:\n");
 console.log("1. Account");
 console.log("2. Send TRX");
-console.log("3. Auth");
+console.log("3. Auth\n");
 console.log("4. Quit");
 
 rl.question("\nSelect an option: ", function (answer) {
@@ -21,9 +23,19 @@ rl.question("\nSelect an option: ", function (answer) {
       });
       break;
     case "2":
-      fs.readFile("./src/send.js", "utf8", function (err, data) {
-        if (err) throw err;
-        eval(data);
+      // fs.readFile("./src/address.js", "utf8", function (err, data) {
+      //   if (err) throw err;
+      //   eval(data);
+      // });
+
+      shell.exec("node ./src/address.js", (error, stdout, stderr) => {
+        console.log("\nError")
+        if (error) {
+          console.error(`exec error: ${error}`);
+          return;
+        }
+        console.log(`stdout: ${stdout}`);
+        console.error(`stderr: ${stderr}`);
       });
       break;
     case "3":
