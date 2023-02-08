@@ -24,11 +24,11 @@ async function sendTRON(privateKey, toAddress, amount) {
   console.log(result);
 }
 
-rl.question("What do you think of Node.js? ", (answer) => {
-
-  console.log(`Thank you for your valuable feedback: ${answer}`);
-
-  rl.close();
+rl.question("What do you think of Node.js? ", (address) => {
+  console.log(address);
+  rl.question("TRX Amount: ", (trxamount) => {
+    rl.close();
+  });
 });
 
 sendTRON(process.env.PRIVATE_KEY, address, trxamount);
