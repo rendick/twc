@@ -1,3 +1,5 @@
+# !!! This wallet is not finished at the moment and is in the experimental version. If something does not work, I am working on fixing this bug. In the near future I will write the release date of the alpha version. 
+
 ## CLI Tron Wallet
 
 The Wallet is always being updated, so stay tuned
