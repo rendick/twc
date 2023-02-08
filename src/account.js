@@ -1,19 +1,17 @@
-const TronWeb = require('tronweb');
-require('dotenv').config()
+const TronWeb = require("tronweb");
+const shell = require("shelljs");
+require("dotenv").config();
 
-const fullNode = 'https://api.trongrid.io';
-const solidityNode = 'https://api.trongrid.io';
-const eventServer = 'https://api.trongrid.io/';
-const privateKey = process.env.PRIVATE_KEY;
+const key = shell.exec("sudo cat .env", {silent: true}).stdout.replace(/(\r\n|\n|\r)/gm,"");
 
-const tronWeb = new TronWeb(
-    fullNode,
-    solidityNode,
-    eventServer,
-    privateKey
-);
+  const fullNode = "https://api.trongrid.io";
+  const solidityNode = "https://api.trongrid.io";
+  const eventServer = "https://api.trongrid.io/";
+  const privateKey = `${key}`; 
 
-async function main() {
+  const tronWeb = new TronWeb(fullNode, solidityNode, eventServer, privateKey);
+
+  async function main() {
     const nodeVersion = await tronWeb.isConnected();
     console.log(`Connected to node: ${nodeVersion}`);
 
@@ -22,6 +20,7 @@ async function main() {
 
     const balance = await tronWeb.trx.getBalance(currentAddress);
     console.log(`TRX balance: ${balance}`);
-}
+  }
 
-main().catch(console.error);
+  main().catch(console.error);
+
