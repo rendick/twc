@@ -15,8 +15,10 @@
     "cli-menu": "^1.0.0",
     "crypto": "^1.0.1",
     "crypto-js": "^4.1.1",
+    "cryptocurrency-price-kit": "^0.0.12",
     "dotenv": "^16.0.3",
     "hdkey": "^2.1.0",
+    "shelljs": "^0.8.5",
     "tonweb-mnemonic": "^1.0.1",
     "tronweb": "^5.1.0"
   }
