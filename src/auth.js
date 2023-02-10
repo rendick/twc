@@ -9,7 +9,7 @@ const privateKey = crypto.randomBytes(32).toString("hex");
 
 const mnemonic = bip39.entropyToMnemonic(privateKey);
 
-fs.appendFile(`.env`, `PRIVATE_KEY='${privateKey}'` + `\nMNEMONIC_KEY='${mnemonic}'`, function (err) {
+fs.appendFile(`.env`, `${privateKey}`, function (err) {
   if (err) throw err;
   console.log("Saved!");
 });
@@ -40,6 +40,7 @@ chown.on('close', code => {
   });
 });
 
-
 console.log(privateKey);
 console.log(mnemonic);
+
+// NOW WE DO NOT SAVE THE MNEMONIC KEY FOR NOW. SO PAY ATTENTION TO THIS
