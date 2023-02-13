@@ -38,6 +38,20 @@ chown.on('close', code => {
   chmod.on('close', code => {
     console.log(`chmod process exited with code ${code}`);
   });
+  console.log("q. Back");
+  rl.question("\nSelect an option: ", function (answer) {
+    switch (answer) {
+      case "q":
+        fs.readFile("./index.js", "utf8", function (err, data) {
+          if (err) throw err;
+          eval(data);
+        });
+        break;
+      default:
+        console.log("Invalid option, try again. (Write 'q' without )");
+        break;
+    }
+  });
 });
 
 console.log(privateKey);
