@@ -23,20 +23,20 @@ rl.question("\nSelect an option: ", function (answer) {
       });
       break;
     case "2":
-      // fs.readFile("./src/address.js", "utf8", function (err, data) {
-      //   if (err) throw err;
-      //   eval(data);
-      // });
-
-      shell.exec("node ./src/address.js", (error, stdout, stderr) => {
-        console.log("\nError")
-        if (error) {
-          console.error(`exec error: ${error}`);
-          return;
-        }
-        console.log(`stdout: ${stdout}`);
-        console.error(`stderr: ${stderr}`);
+      fs.readFile("./src/address.js", "utf8", function (err, data) {
+        if (err) throw err;
+        eval(data);
       });
+
+//       shell.exec("node ./src/address.js", (error, stdout, stderr) => {
+//         console.log("\nError")
+//         if (error) {
+//           console.error(`exec error: ${error}`);
+//           return;
+//         }
+//         console.log(`stdout: ${stdout}`);
+//         console.error(`stderr: ${stderr}`);
+//       });
       break;
     case "3":
       fs.readFile("./src/auth.js", "utf8", function (err, data) {
