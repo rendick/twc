@@ -2,7 +2,6 @@ const readline = require("readline");
 const fs = require("fs");
 const shell = require("shelljs");
 
-
 const rl = readline.createInterface({
   input: process.stdin,
   output: process.stdout,
@@ -27,16 +26,6 @@ rl.question("\nSelect an option: ", function (answer) {
         if (err) throw err;
         eval(data);
       });
-
-//       shell.exec("node ./src/address.js", (error, stdout, stderr) => {
-//         console.log("\nError")
-//         if (error) {
-//           console.error(`exec error: ${error}`);
-//           return;
-//         }
-//         console.log(`stdout: ${stdout}`);
-//         console.error(`stderr: ${stderr}`);
-//       });
       break;
     case "3":
       fs.readFile("./src/auth.js", "utf8", function (err, data) {
