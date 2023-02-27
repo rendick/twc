@@ -1,7 +1,10 @@
 const TronWeb = require("tronweb");
-const fs = require("fs");
-const shell = require("shelljs");
-require("dotenv").config();
+const fetch = require("node-fetch");
+const dotenv = require("dotenv");
+const readline = require("readline");
+const fs = require("fs/promises");
+
+dotenv.config();
 
 const key = shell
   .exec("sudo cat .env", { silent: true })
@@ -14,7 +17,12 @@ const privateKey = `${key}`;
 
 const tronWeb = new TronWeb(fullNode, solidityNode, eventServer, privateKey);
 
-async function main() {
+const rl = readline.createInterface({
+  input: process.stdin,
+  output: process.stdout,
+});
+
+async function displayTRXInfo() {
   const nodeVersion = await tronWeb.isConnected();
   console.log(`Connected to node: ${nodeVersion}`);
 
@@ -30,18 +38,17 @@ async function main() {
   console.log(`The current price of TRX is $${price}\n`);
 
   console.log("q. Back");
-  rl.question("\nSelect an option: ", function (answer) {
+  rl.question("\nSelect an option: ", async function (answer) {
     switch (answer) {
       case "q":
-        fs.readFile("./index.js", "utf8", function (err, data) {
-          if (err) throw err;
-          eval(data);
-        });
+        const data = await fs.readFile("./index.js", "utf8");
+        eval(data);
         break;
       default:
-        console.log("Invalid option, try again. (Write 'q' without )");
+        console.log("Invalid option, try again. (Write 'q' without quotes)");
         break;
     }
   });
 }
-main().catch(console.error);
+
+displayTRXInfo().catch(console.error);
