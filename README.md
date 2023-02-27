@@ -1,5 +1,3 @@
-# The developer (me) rests for 4 days. Development will continue on 17/02/2023.
-
 ### !!! This wallet is not finished at the moment and is in the experimental version. If something does not work or it does not work correctly, I am working on fixing this bug. In the near future I will write the release date of the alpha version. 
 
 ### About the bug and suggestions for improvement you can write in issues. [click](https://github.com/naddurkostia/TRX-Wallet-CLI/issues)
