@@ -22,9 +22,16 @@ cd trx-wallet-cli
 npm install && npm start
 ```
 
+## Problems in the script
+
+`readline` library writes two characters instead of one.
 
 ## Support
 
 TRX - `TBBshHBLvGZcm4S6tB9PXdGHLrWQe1VhAw`
 
 BTC - `bc1qzuwkuxk8sj4r97pehdqvse7a22xlp4w0cwzn35`
+
+## Contact
+
+![Telegram](https://t.me/richardbensn)
