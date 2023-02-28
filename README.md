@@ -19,7 +19,7 @@ git clone https://github.com/naddurkostia/trx-wallet-cli.git
 
 cd trx-wallet-cli
 
-npm install && node index.js
+npm install && npm start
 ```
 
 
