@@ -34,4 +34,4 @@ BTC - `bc1qzuwkuxk8sj4r97pehdqvse7a22xlp4w0cwzn35`
 
 ## Contact
 
-![Telegram](https://t.me/richardbensn)
+[Telegram](https://t.me/richardbensn)
