@@ -21,6 +21,11 @@ cd trx-wallet-cli
 
 npm install && npm start
 ```
+**Soon...**
+
+```bash
+sh install.sh
+```
 
 ## Problems in the script
 
