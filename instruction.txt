@@ -1,1 +1,15 @@
-Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World 
+[EN]
+
+1. The first thing to do is to install the script with the command `sh install.sh`. In all likelihood, if you are reading this, you have already done so and are now in the install.sh script.
+
+2. IMPORTANT!!! After installation you will be thrown into the wallet, click on "Auth", and then just wait. The private key will be placed in .env with chmod protection, thanks to which no outsider, who does not know the password from the system, will be able to see this key and do any actions with your account. But remember, at the moment the script doesn't save mnemonic keys, but I'm working on that, so in a future update wait for phrase support.
+
+3. Then go to the main menu by pressing the `q` button, and preferably restart the script, because because of readline bugs the characters are repeated twice.
+
+[UK]
+
+1. Перше, що потрібно зробити, це встановити скрипт командою `sh install.sh`. Скоріш за все, якщо ви читаєте цей мануал, то ви вже це зробили і зараз перебуваєте у скрипті install.sh.
+
+2. ВАЖЛИВО!!! Після установки вас перекине в гаманець, натисніть на "Auth", а потім просто почекайте. Приватний ключ буде поміщений в .env з захистом chmod, завдяки якому жодна стороння людина, яка не знає пароль від системи, не зможе побачити цей ключ і зробити будь-які дії з вашим акаунтом. Але пам'ятайте, що на даний момент скрипт не зберігає мнемонічні ключі, але я працюю над цим, тому в наступному оновленні чекайте на підтримку фраз.
+
+3. Після цього перейдіть в головне меню, натиснувши кнопку `q`, і бажано перезапустіть скрипт, тому що через баги readline символи повторюються двічі.
