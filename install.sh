@@ -1,18 +1,14 @@
 #!/bin/bash
 
-echo ""
-
-PS3="Select your option please: "
+PS3="Select your option please:  "
 
 select lng in Install Quit; do
     case $lng in
     "Install")
         sudo npm install
         sleep 1
-        echo ""
-        echo "Instruction: "
+        echo -e "\nInstruction:\n"
         sleep 1
-        echo ""
         cat instruction.txt
         echo ""
 
@@ -26,8 +22,10 @@ select lng in Install Quit; do
         
         sleep 1
         echo ""
-        echo "Launching the script..."
+        echo -e "\nLaunching the script...\n"
         node index.js --help
+
+		echo "2) Quit"
         ;;
     "Quit")
         echo "We're done"
