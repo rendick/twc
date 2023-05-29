@@ -1,44 +1,40 @@
-const readline = require("readline");
+const { program } = require('commander');
 const fs = require("fs");
-const shell = require("shelljs");
+const { Command } = require('commander');
 
-const rl = readline.createInterface({
-  input: process.stdin,
-  output: process.stdout,
-});
 
-console.log("\nMenu:\n");
-console.log("1. Account");
-console.log("2. Send TRX");
-console.log("3. Auth\n");
-console.log("4. Quit");
+program
+	.option('-h, --help', 'Output help information')
+	.option('-c, --account', 'Account information')
+	.option('-a, --auth', 'Create wallet')
+	.option('-s, --send', 'Send crypto')
+	.option('-add, --address [type]', 'Reciever address')
+	.option('-am, --amount [type]', 'TRX Amount')
+	.parse(process.argv);
 
-rl.question("\nSelect an option: ", function (answer) {
-  switch (answer) {
-    case "1":
-      fs.readFile("./src/account.js", "utf8", function (err, data) {
-        if (err) throw err;
-        eval(data);
-      });
-      break;
-    case "2":
-      fs.readFile("./src/address.js", "utf8", function (err, data) {
-        if (err) throw err;
-        eval(data);
-      });
-      break;
-    case "3":
-      fs.readFile("./src/auth.js", "utf8", function (err, data) {
-        if (err) throw err;
-        eval(data);
-      });
-      break;
-    case "4":
-      console.log("Quitting");
-      rl.close();
-      break;
-    default:
-      console.log("Invalid option, try again");
-      break;
-  }
-});
+const options = program.opts();
+
+//  Help func
+if (options.help) {
+	fs.readFile("./help.js", "utf8", function (err, data) {
+		if (err) throw err;
+		eval(data);
+	});
+}
+
+// Account func
+if (options.account) {
+	fs.readFile("./src/account.js", "utf8", function (err, data) {
+		if (err) throw err;
+		eval(data);
+	});
+}
+
+// Auth func
+if (options.auth) {
+	fs.readFile("./src/auth.js", "utf8", function (err, data) {
+		if (err) throw err;
+		eval(data);
+	});
+}
+

@@ -8,13 +8,12 @@ select lng in Install Quit; do
     case $lng in
     "Install")
         sudo npm install
-        sleep 2
+        sleep 1
         echo ""
         echo "Instruction: "
-        sleep 2
+        sleep 1
         echo ""
         cat instruction.txt
-        echo ""
         echo ""
 
         while true; do
@@ -25,22 +24,10 @@ select lng in Install Quit; do
             esac
         done
         
-        sleep 2
+        sleep 1
         echo ""
         echo "Launching the script..."
-        sleep 0.5
-        echo "..."
-        sleep 0.5
-        echo ".."
-        sleep 0.5
-        echo "."
-        sleep 0.5
-        echo "..."
-        sleep 0.5
-        echo "."
-        sleep 0.5
-        echo ".."
-        npm start
+        node index.js --help
         ;;
     "Quit")
         echo "We're done"

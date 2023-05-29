@@ -1,6 +1,7 @@
 const bip39 = require("bip39");
 const crypto = require("crypto");
 const fs = require("fs");
+var term = require( 'terminal-kit' ).terminal;
 const { spawn } = require('child_process');
 
 const chown = spawn('sudo', ['chown', 'root', '.env']);
@@ -36,25 +37,11 @@ chown.on('close', code => {
   });
 
   chmod.on('close', code => {
+    console.log("Do not forget to save privateKey code into your notebook!\n")
     console.log(`chmod process exited with code ${code}`);
-  });
-  console.log("q. Back");
-  rl.question("\nSelect an option: ", function (answer) {
-    switch (answer) {
-      case "q":
-        fs.readFile("./index.js", "utf8", function (err, data) {
-          if (err) throw err;
-          eval(data);
-        });
-        break;
-      default:
-        console.log("Invalid option, try again. (Write 'q' without )");
-        break;
-    }
   });
 });
 
 console.log(privateKey);
 console.log(mnemonic);
 
-// NOW WE DO NOT SAVE THE MNEMONIC KEY FOR NOW. SO PAY ATTENTION TO THIS
